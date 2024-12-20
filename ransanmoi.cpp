@@ -14,6 +14,8 @@ bool game_over(int x_coord[], int y_coord[], int x, int y);
 bool snake_eat_food(int xfood, int yfood, int x_coord[],  int y_coord[]);
 void food_create(int &xfood, int &yfood, int x_coord[], int y_coord[]);
 bool snake_ate_food(int xfood, int yfood, int x0, int y0);
+void score_display();
+
 #define MAX 100
 
 using namespace std;
@@ -194,8 +196,10 @@ int main(){
         x--;
        }
        if(game_over(x_coord, y_coord, x, y)){
-        gotoXY(50, 13); //return to starting position
-        cout << "Game Over!" << endl << "Your Score: " << score;
+        gotoXY(50, 13); 
+        cout << "Game Over!" << endl;
+        gotoXY(48, 14);
+        cout << "Your Score: " << score;
         break;
        }
        snake_move(x_coord, y_coord, x, y, xfood, yfood);
